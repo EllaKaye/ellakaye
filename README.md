@@ -1,2 +1,2 @@
 # ellakaye
-personal website
+personal website for Ella Kaye
