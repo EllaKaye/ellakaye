@@ -1,0 +1,50 @@
+---
+title: n_letter_words and a personal (publically available) package
+author: Ella Kaye
+date: '2017-06-17'
+slug: n-letter-words
+categories: ["R"]
+tags: ["R", "EMK", "#rstats"]
+---
+
+
+
+<p>There’s a little R function that I wrote and packaged up to generate a vector or data frame of words of a given length. I find it useful in a wide variety of contexts and thought other might too. To kick off my new blog, here’s a post about it.</p>
+<p>The function, <code>n_letter_words</code>, came about because I wanted to be able to generate row and column names for a large matrix - didn’t matter what they were, as long as they were unique. Since I was in the habit of using the built-in <code>LETTERS</code> vector to do this for small matrices, I naturally thought of using combinations of letters to do this in a larger case. In figuring out how to do this, as is so often the case, it was <a href="https://stackoverflow.com/questions/11388359/unique-combination-of-all-elements-from-two-or-more-vectors">stackoverflow</a> to the rescue. There, I learnt about <code>expand.grid</code> and could then use some tidyverse tools to get the vector I was after:</p>
+<pre class="r"><code>library(tidyverse)
+out &lt;- expand.grid(LETTERS, LETTERS) %&gt;%
+  as_data_frame() %&gt;%
+  unite(word, 1:2, sep = &quot;&quot;) %&gt;%
+  pull()
+c(head(out), tail(out))</code></pre>
+<pre><code>##  [1] &quot;AA&quot; &quot;BA&quot; &quot;CA&quot; &quot;DA&quot; &quot;EA&quot; &quot;FA&quot; &quot;UZ&quot; &quot;VZ&quot; &quot;WZ&quot; &quot;XZ&quot; &quot;YZ&quot; &quot;ZZ&quot;</code></pre>
+<p>Sorted! At least I thought so, until, a couple of months later, when I wanted to generate names for a 1000*1000 matrix, and realised both that I’d forgotten the <code>expand.grid</code> trick, and once I’d re-found the stackoverflow post, that it didn’t give me enough words. That was enough to make it worth writing a function, taking <code>n</code> as an argument, that gives all ‘words’ of length <span class="math inline">\(n\)</span>.</p>
+<p>Writing functions always makes me think of what other arguments might be useful. What if we want something between the 676 two-letter words and 17,576 three-letter words (or the 456,976 four-letter words, etc)? Hence the argument <code>num_letters</code>, which can be set between 1 and 26, and results in a total of <span class="math inline">\(\text{num_letters}^n\)</span> words. By default, the function returns a <code>tibble</code>, but setting <code>as_vector = TRUE</code> does what you’d expect. And I threw in a <code>case</code> argument too.</p>
+<p>Now that I had my function, what to do with it? I remembered articles I’d read about the usefulness of <a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/">making</a> and <a href="(https://hilaryparker.com/2013/04/03/personal-r-packages/)">sharing</a> a personal package. Now seemed like the time to do that myself.</p>
+<p>So, <a href="https://github.com/EllaKaye/EMK">here</a> is my personal package, <code>EMK</code>. If you think that <code>n_letter_words</code> might be of use to you, then feel free to install!</p>
+<pre class="r"><code>devtools::install_github(&quot;EllaKaye/EMK&quot;)
+library(EMK)</code></pre>
+<p>Some examples of <code>n_letter_words</code>:</p>
+<pre class="r"><code>n_letter_words(2)</code></pre>
+<pre><code>## # A tibble: 676 x 1
+##     word
+##  * &lt;chr&gt;
+##  1    AA
+##  2    BA
+##  3    CA
+##  4    DA
+##  5    EA
+##  6    FA
+##  7    GA
+##  8    HA
+##  9    IA
+## 10    JA
+## # ... with 666 more rows</code></pre>
+<pre class="r"><code>some_three_letter_words &lt;- n_letter_words(3, num_letters = 10, case = &quot;lower&quot;, as_vector = TRUE)
+c(head(some_three_letter_words), tail(some_three_letter_words))</code></pre>
+<pre><code>##  [1] &quot;aaa&quot; &quot;baa&quot; &quot;caa&quot; &quot;daa&quot; &quot;eaa&quot; &quot;faa&quot; &quot;ejj&quot; &quot;fjj&quot; &quot;gjj&quot; &quot;hjj&quot; &quot;ijj&quot;
+## [12] &quot;jjj&quot;</code></pre>
+<pre class="r"><code>length(some_three_letter_words)</code></pre>
+<pre><code>## [1] 1000</code></pre>
+<p>For now, my personal package has only this one function, but watch this space! No doubt I’ll be adding more that I find useful. Perhaps, you’ll find them useful too.</p>
+<p>Incidentally, none of the above would have happened if I’d just thought, for my test matrix <code>A</code>, to set <code>dimnames(A) &lt;- list(1:nrow(A), 1:ncol(A))</code>!</p>
