@@ -26,4 +26,4 @@ caption = ""
 
 +++
 
-A short and casual overview of [htmlwidgets](http://www.htmlwidgets.org).
+A brief overview of [htmlwidgets](http://www.htmlwidgets.org).
