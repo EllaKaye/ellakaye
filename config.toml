@@ -173,7 +173,7 @@ defaultContentLanguageInSubdir = false
   weight = 3
   
 [[menu.main]]
-  name = "Software"
+  name = "R packages"
   url = "#software"
   weight = 4
 
