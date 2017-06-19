@@ -16,7 +16,12 @@ weight = 60
 
 I am an R enthusiast and enjoy developing packages.
 
-- `BradleyTerryScalable`: An R package to fit the Bradley-Terry model to large and potentially sparse datasets. This package is in the final stages of development. It is currently available on [GitHub](https://github.com/EllaKaye/BradleyTerryScalable), and will hopefully be on CRAN by the end of June. I am very excited to be [talking]({{< ref "talk/2017-03-06-BradleyTerryScalable_useR.md" >}}) about it at [useR!2017](https://user2017.brussels) soon.
+- `BradleyTerryScalable`: An R package to fit the Bradley-Terry model to large and potentially sparse datasets. This package is in the final stages of development. It is currently available on [GitHub](https://github.com/EllaKaye/BradleyTerryScalable), and will hopefully be on CRAN by the end of June. The development documentation is available [here](https://ellakaye.github.io/BradleyTerryScalable/reference/index.html). I am very excited to be [talking]({{< ref "talk/2017-03-06-BradleyTerryScalable_useR.md" >}}) about it at [useR!2017](https://user2017.brussels) soon.
+
+{{% alert note %}}
+The documentation is still being updated, and not all functions currently listed will be exported in the CRAN release. Also, the current implementation of `vcov.btfit` is prohibitively slow, and will be improved prior to release.
+{{% /alert %}}
+
 
 - `EMK`: A personal package, available on [GitHub](https://github.com/EllaKaye/EMK), to collect various functions I've written that I find useful in a number of settings (admittedly, currently just one function!). 
   
