@@ -1,5 +1,5 @@
 ---
-title: n_letter_words and a personal (publically available) package
+title: n_letter_words and a personal (publicly available) package
 author: Ella Kaye
 date: '2017-06-17'
 slug: n-letter-words
