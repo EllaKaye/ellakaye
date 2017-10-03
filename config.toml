@@ -1,4 +1,4 @@
-baseurl = "https://ellakaye.rbind.io/"  # End your URL with a `/` trailing slash.
+baseurl = "https://ellakaye.rbind.io/"  
 title = "Ella Kaye"
 copyright = "&copy; 2017 Ella Kaye"
 theme = "hugo-academic"
