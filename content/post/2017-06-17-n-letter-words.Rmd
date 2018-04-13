@@ -4,7 +4,7 @@ author: Ella Kaye
 date: '2017-06-17'
 slug: n-letter-words
 categories: ["R"]
-tags: ["R", "EMK", "#rstats"]
+tags: ["R", "EMK", "rstats"]
 ---
 
 There's a little R function that I wrote and packaged up to generate a vector or data frame of words of a given length. I find it useful in a wide variety of contexts and thought other might too. To kick off my new blog, here's a post about it.

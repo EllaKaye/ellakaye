@@ -4,7 +4,7 @@ author: Ella Kaye
 date: '2017-06-17'
 slug: n-letter-words
 categories: ["R"]
-tags: ["R", "EMK", "#rstats"]
+tags: ["R", "EMK", "rstats"]
 ---
 
 
@@ -27,18 +27,18 @@ library(EMK)</code></pre>
 <p>Some examples of <code>n_letter_words</code>:</p>
 <pre class="r"><code>n_letter_words(2)</code></pre>
 <pre><code>## # A tibble: 676 x 1
-##     word
-##  * &lt;chr&gt;
-##  1    AA
-##  2    BA
-##  3    CA
-##  4    DA
-##  5    EA
-##  6    FA
-##  7    GA
-##  8    HA
-##  9    IA
-## 10    JA
+##    word 
+##    &lt;chr&gt;
+##  1 AA   
+##  2 BA   
+##  3 CA   
+##  4 DA   
+##  5 EA   
+##  6 FA   
+##  7 GA   
+##  8 HA   
+##  9 IA   
+## 10 JA   
 ## # ... with 666 more rows</code></pre>
 <pre class="r"><code>some_three_letter_words &lt;- n_letter_words(3, num_letters = 10, case = &quot;lower&quot;, as_vector = TRUE)
 c(head(some_three_letter_words), tail(some_three_letter_words))</code></pre>
