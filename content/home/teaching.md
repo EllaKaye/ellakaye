@@ -14,7 +14,9 @@ weight = 60
 
 +++
 
-I am a teaching instructor for the following courses at the University of Warwick:
+I am/have been a teaching instructor for the following courses at the University of Warwick:
 
+- Spring/Summer 2018: [ST104 - Statistical Laboratory 1](https://warwick.ac.uk/fac/sci/statistics/modules/st1/st104)
 - Spring 2017: [ST219 - Mathematical Statistics Part B](http://www2.warwick.ac.uk/fac/sci/statistics/modules/st2/st219)
+
 
