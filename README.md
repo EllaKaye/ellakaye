@@ -1,3 +1,5 @@
+This repo is now archived.
+
 This is a [hugo](http://gohugo.io/) [academic](https://sourcethemes.com/academic) created by [hugodown](http://hugodown.r-lib.org/).
 
 ## Basic operation
